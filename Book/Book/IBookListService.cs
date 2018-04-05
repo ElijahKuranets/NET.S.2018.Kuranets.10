@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace Book
 {
-    class IBookListService
+    public interface IBookListService
     {
+        void AddBook(Book book);
+
+        void RemoveBook(Book book);
+
+        Book FindBook(IFinder parameter);
+
+        void Sort(IComparer<Book> comparator);
+
+        void Save();
+
+        IEnumerable<Book> GetAllBooks();
     }
 }

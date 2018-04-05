@@ -73,7 +73,7 @@ namespace Book
         {
             if (string.IsNullOrEmpty(format))
             {
-                format = "4";
+                format = "5";
             }
 
             switch (format)
@@ -82,7 +82,8 @@ namespace Book
                 case "2": return $"Author: {AuthorName} Book: {Title} Publisher: {Publisher} Year: {Year}";
                 case "3": return $"ISBN: {ISBN} Author: {AuthorName} Book: {Title} Publisher: {Publisher} Year: {Year}";
                 case "4": return $"ISBN: {ISBN} Author: {AuthorName} Book: {Title} Publisher: {Publisher} Year: {Year} NumberOfPages: {NumberOfPages}";
-                case "5": return $"ISBN: {ISBN} Author: {AuthorName} Book: {Title} Publisher: {Publisher} Year: {Year} NumberOfPages: {NumberOfPages} Price: {Price}";
+                case "5": return $"ISBN: {ISBN} Author: {AuthorName} Book: {Title} Publisher: {Publisher} Year: {Year} Price: {Price}";
+                case "6": return $"ISBN: {ISBN} Author: {AuthorName} Book: {Title} Publisher: {Publisher} Year: {Year} NumberOfPages: {NumberOfPages} Price: {Price}";
                 default: throw new FormatException($"The {format} format string is not supported.");
             }
         }
@@ -106,7 +107,7 @@ namespace Book
 
         public override string ToString()
         {
-            return ToString("6", null);
+            return ToString("7", null);
         }
         #endregion
     }

@@ -7,19 +7,20 @@ using System.Threading.Tasks;
 
 namespace Book
 {
-    public class BookListStorage: IBookListStorage
+    public class BookListStorage : IBookListStorage
     {
         /// <summary>
         /// Field "path" is a file location
         /// </summary>
         private readonly string path;
 
-        public BookListStorage()
+        public BookListStorage(string path)
         {
             if (string.IsNullOrEmpty(path))
             {
                 throw new ArgumentException("Incorrect");
             }
+            this.path = path;
         }
 
         #region public methods
@@ -41,7 +42,7 @@ namespace Book
         {
             using (var bw = new BinaryWriter(File.Open(path, FileMode.Append, FileAccess.Write, FileShare.None)))
             {
-                Writer(bw,book);
+                Writer(bw, book);
             }
         }
 
@@ -55,7 +56,7 @@ namespace Book
                 }
             }
         }
-#endregion
+        #endregion
 
         #region private methods
         private static void Writer(BinaryWriter binary, Book book)
